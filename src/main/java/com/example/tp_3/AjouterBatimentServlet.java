@@ -38,7 +38,6 @@ public class AjouterBatimentServlet extends HttpServlet {
         // Fermer la connexion à la base de données
 
 
-
         // Afficher la liste des bâtiments dans la réponse HTTP
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
