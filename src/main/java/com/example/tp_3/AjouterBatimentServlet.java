@@ -1,5 +1,5 @@
 package com.example.tp_3;
-import com.example.tp_3.dao.BatimentDao;
+import com.example.tp_3.dao.implimentation.BatimentDao;
 import com.example.tp_3.models.Batiment;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

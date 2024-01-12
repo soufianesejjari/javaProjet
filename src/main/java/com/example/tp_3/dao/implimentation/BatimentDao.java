@@ -1,5 +1,7 @@
-package com.example.tp_3.dao;
+package com.example.tp_3.dao.implimentation;
 
+import com.example.tp_3.dao.BatimentDaoI;
+import com.example.tp_3.dao.DatabaseConnection;
 import com.example.tp_3.models.Batiment;
 
 import java.sql.Connection;
