@@ -23,6 +23,13 @@ public class DatabaseConnection {
     }
     public static Connection getConnection()
     {
-        return con;
+        if (con == null) {
+            // Handle the situation where the connection is null
+            // You might want to log an error or throw an exception
+            // depending on your application requirements.
+            // Example:
+            throw new IllegalStateException("Database connection is null");
+        } else {
+        return con;}
     }
 }

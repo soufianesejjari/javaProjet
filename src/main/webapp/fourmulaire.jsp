@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>Ajouter un Bâtiment</h2>
-<form action="/AjouterBatimentServlet" method="post">
+<form action="/javaProjet_master_war/AjouterBatimentServlet" method="post">
     <label for="emplacement">Emplacement :</label>
     <input type="text" id="emplacement" name="emplacement" required><br>
 
