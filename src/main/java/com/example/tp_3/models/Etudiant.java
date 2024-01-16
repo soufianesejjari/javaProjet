@@ -5,21 +5,31 @@ public class Etudiant {
         private int idEtudiant;
         private String nom;
         private String prenom;
-        private String codeEtudiant;
+        private String code;
         private String situationScolaire;
+        private int idSection;
 
-        // Constructeur par défaut
+    // Constructeur par défaut
         public Etudiant() {
         }
 
         // Constructeur avec paramètres
-        public Etudiant(int idEtudiant, String nom, String prenom, String codeEtudiant, String situationScolaire) {
+        public Etudiant(int idEtudiant, String nom, String prenom, String code, String situationScolaire,int idSection) {
             this.idEtudiant = idEtudiant;
             this.nom = nom;
             this.prenom = prenom;
-            this.codeEtudiant = codeEtudiant;
+            this.code = code;
             this.situationScolaire = situationScolaire;
+            this.idSection =idSection;
         }
+
+    public int getIdSection() {
+        return idSection;
+    }
+
+    public void setIdSection(int idSection) {
+        this.idSection = idSection;
+    }
 
     public int getIdEtudiant() {
         return idEtudiant;
@@ -45,12 +55,12 @@ public class Etudiant {
         this.prenom = prenom;
     }
 
-    public String getCodeEtudiant() {
-        return codeEtudiant;
+    public String getCode() {
+        return code;
     }
 
-    public void setCodeEtudiant(String codeEtudiant) {
-        this.codeEtudiant = codeEtudiant;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getSituationScolaire() {

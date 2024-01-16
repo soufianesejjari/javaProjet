@@ -16,18 +16,18 @@ public class EtudiantDao implements EtudiantDaoI {
 
     @Override
     public void ajouterEtudiant(Etudiant etudiant) {
-        String query = "INSERT INTO Etudiant (Nom, Prenom, Code, Situation_Scolaire) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO Etudiant (Nom, Prenom, Code, Situation_Scolaire, ID_Section) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, etudiant.getNom());
             preparedStatement.setString(2, etudiant.getPrenom());
-            preparedStatement.setString(3, etudiant.getCodeEtudiant());
+            preparedStatement.setString(3, etudiant.getCode());
             preparedStatement.setString(4, etudiant.getSituationScolaire());
+            preparedStatement.setInt(5, etudiant.getIdSection());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
         }
     }
 
@@ -46,13 +46,13 @@ public class EtudiantDao implements EtudiantDaoI {
                             resultSet.getString("Nom"),
                             resultSet.getString("Prenom"),
                             resultSet.getString("Code"),
-                            resultSet.getString("Situation_Scolaire")
+                            resultSet.getString("Situation_Scolaire"),
+                            resultSet.getInt("ID_Section")
                     );
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
         }
 
         return etudiant;
@@ -72,13 +72,41 @@ public class EtudiantDao implements EtudiantDaoI {
                         resultSet.getString("Nom"),
                         resultSet.getString("Prenom"),
                         resultSet.getString("Code"),
-                        resultSet.getString("Situation_Scolaire")
+                        resultSet.getString("Situation_Scolaire"),
+                        resultSet.getInt("ID_Section")
                 );
                 etudiants.add(etudiant);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+        }
+
+        return etudiants;
+    }
+
+    @Override
+    public List<Etudiant> getEtudiantsBySection(int idSection) {
+        List<Etudiant> etudiants = new ArrayList<>();
+        String query = "SELECT * FROM Etudiant WHERE ID_Section = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, idSection);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Etudiant etudiant = new Etudiant(
+                            resultSet.getInt("ID_Etudiant"),
+                            resultSet.getString("Nom"),
+                            resultSet.getString("Prenom"),
+                            resultSet.getString("Code"),
+                            resultSet.getString("Situation_Scolaire"),
+                            resultSet.getInt("ID_Section")
+                    );
+                    etudiants.add(etudiant);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return etudiants;
@@ -86,19 +114,19 @@ public class EtudiantDao implements EtudiantDaoI {
 
     @Override
     public void updateEtudiant(Etudiant etudiant) {
-        String query = "UPDATE Etudiant SET Nom = ?, Prenom = ?, Code_Etudiant = ?, Situation_Scolaire = ? WHERE ID_Etudiant = ?";
+        String query = "UPDATE Etudiant SET Nom = ?, Prenom = ?, Code = ?, Situation_Scolaire = ?, ID_Section = ? WHERE ID_Etudiant = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, etudiant.getNom());
             preparedStatement.setString(2, etudiant.getPrenom());
-            preparedStatement.setString(3, etudiant.getCodeEtudiant());
+            preparedStatement.setString(3, etudiant.getCode());
             preparedStatement.setString(4, etudiant.getSituationScolaire());
-            preparedStatement.setInt(5, etudiant.getIdEtudiant());
+            preparedStatement.setInt(5, etudiant.getIdSection());
+            preparedStatement.setInt(6, etudiant.getIdEtudiant());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
         }
     }
 
@@ -111,7 +139,6 @@ public class EtudiantDao implements EtudiantDaoI {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
         }
     }
 }
