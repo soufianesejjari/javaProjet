@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>Ajouter un Bâtiment</h2>
-<form action="/javaProjet_master_war/AjouterBatimentServlet" method="post">
+<form action="${pageContext.request.contextPath}/AjouterBatimentServlet" method="post">
     <label for="emplacement">Emplacement :</label>
     <input type="text" id="emplacement" name="emplacement" required><br>
 
@@ -20,7 +20,10 @@
     <input type="number" id="taille" name="taille" required><br>
 
     <label for="fonctionnalite">Fonctionnalité :</label>
-    <input type="text" id="fonctionnalite" name="fonctionnalite" required><br>
+    <select id="fonctionnalite" name="fonctionnalite" required>
+        <option value="Classe">Classe</option>
+        <option value="Administration">Administration</option>
+    </select><br>
 
     <label for="description">Description :</label>
     <textarea id="description" name="description" rows="4" required></textarea><br>

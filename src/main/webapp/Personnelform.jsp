@@ -14,7 +14,7 @@
 </head>
 <body>
 <h2>Ajouter Personnel</h2>
-<form action="/javaProjet_master_war/AjouterPersonnelServlet" method="post">
+<form action="${pageContext.request.contextPath}/AjouterPersonnelServlet" method="post">
     Nom: <input type="text" name="nom" required><br>
     Prénom: <input type="text" name="prenom" required><br>
     Fonction: <input type="text" name="fonction" required><br>
