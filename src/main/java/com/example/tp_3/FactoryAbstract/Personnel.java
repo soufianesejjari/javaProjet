@@ -1,11 +1,11 @@
-package com.example.tp_3.models;
+package com.example.tp_3.FactoryAbstract;
 
-public class    Personnel {
+public abstract class Personnel {
 
-    private int idPersonnel;
+
     private String nom;
     private String prenom;
-    private String fonction;
+    protected String fonction;
     private String identifiant;
 
     // Constructeur par défaut
@@ -13,8 +13,7 @@ public class    Personnel {
     }
 
     // Constructeur avec paramètres
-    public Personnel(int idPersonnel, String nom, String prenom, String fonction, String identifiant) {
-        this.idPersonnel = idPersonnel;
+    public Personnel( String nom, String prenom, String fonction, String identifiant) {
         this.nom = nom;
         this.prenom = prenom;
         this.fonction = fonction;
@@ -24,13 +23,8 @@ public class    Personnel {
     // Getters et Setters
     // ...
 
-    public int getIdPersonnel() {
-        return idPersonnel;
-    }
 
-    public void setIdPersonnel(int idPersonnel) {
-        this.idPersonnel = idPersonnel;
-    }
+
 
     public String getNom() {
         return nom;
@@ -52,9 +46,7 @@ public class    Personnel {
         return fonction;
     }
 
-    public void setFonction(String fonction) {
-        this.fonction = fonction;
-    }
+    public abstract void setFonction() ;
 
     public String getIdentifiant() {
         return identifiant;
