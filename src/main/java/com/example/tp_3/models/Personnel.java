@@ -1,6 +1,6 @@
 package com.example.tp_3.models;
 
-public class    Personnel {
+public class Personnel {
 
     private int idPersonnel;
     private String nom;

@@ -1,5 +1,4 @@
 package com.example.tp_3.models;
-
 public class Batiment {
     private int idBatiment;
     private String emplacement;

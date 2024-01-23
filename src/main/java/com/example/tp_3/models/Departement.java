@@ -13,4 +13,20 @@ public class Departement {
             this.idDepartement = idDepartement;
             this.nomDepartement = nomDepartement;
         }
+
+    public int getIdDepartement() {
+        return idDepartement;
     }
+
+    public void setIdDepartement(int idDepartement) {
+        this.idDepartement = idDepartement;
+    }
+
+    public String getNomDepartement() {
+        return nomDepartement;
+    }
+
+    public void setNomDepartement(String nomDepartement) {
+        this.nomDepartement = nomDepartement;
+    }
+}
