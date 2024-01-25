@@ -1,12 +1,10 @@
-package com.example.tp_3;
-import com.example.tp_3.dao.implimentation.BatimentDao;
+/*package com.example.tp_3;
+
 import com.example.tp_3.dao.DatabaseConnection;
 import com.example.tp_3.models.Batiment;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +12,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/AfficherBatimentsServlet")
-public class AfficherBatimentsServlet extends HttpServlet {
+@WebServlet("/AfficherBatimentServlet")
+public class AfficherBatimentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,4 +50,4 @@ public class AfficherBatimentsServlet extends HttpServlet {
             // Gérer l'exception selon votre logique d'erreur
         }
     }
-}
+}*/

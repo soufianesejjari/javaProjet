@@ -1,22 +1,19 @@
 package com.example.tp_3;
+
 import com.example.tp_3.Factory.AmphiFactory;
 import com.example.tp_3.Factory.BatimentFactory;
 import com.example.tp_3.Factory.SalleFactory;
 import com.example.tp_3.dao.implimentation.AmphiDao;
 import com.example.tp_3.dao.implimentation.SalleDao;
 import com.example.tp_3.models.Batiment;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-import java.io.PrintWriter;
-
-@WebServlet("/AjouterBatimentServlet")
-public class AjouterBatimentServlet extends HttpServlet {
+@WebServlet("/BatimentServlet")
+public class BatimentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.tp_3.dao.implimentation;
+/*package com.example.tp_3.dao.implimentation;
 
 import com.example.tp_3.dao.BatimentDaoI;
 import com.example.tp_3.dao.DatabaseConnection;
@@ -118,3 +118,4 @@ public class BatimentDao implements BatimentDaoI {
             }
         }
     }
+*/
