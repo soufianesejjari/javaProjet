@@ -1,5 +1,5 @@
 package com.example.tp_3;
-
+/*
 import com.example.tp_3.Factory.AmphiFactory;
 import com.example.tp_3.Factory.BatimentFactory;
 import com.example.tp_3.Factory.SalleFactory;
@@ -44,3 +44,4 @@ public class BatimentServlet extends HttpServlet {
         response.sendRedirect("index.jsp");
     }
 }
+*/

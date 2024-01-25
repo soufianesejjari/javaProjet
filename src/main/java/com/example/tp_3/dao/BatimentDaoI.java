@@ -4,7 +4,7 @@ import com.example.tp_3.models.Batiment;
 
 import java.util.List;
 
-public interface BatimentDaoI {
+/*public interface BatimentDaoI {
 
         void ajouterBatiment(Batiment batiment);
 
@@ -17,5 +17,5 @@ public interface BatimentDaoI {
         void deleteBatiment(int id);
 
     }
-
+*/
 

@@ -1,23 +1,21 @@
 package com.example.tp_3.dao.implimentation;
-/*
-// AmphiDao.java
-import com.example.tp_3.dao.BatimentDaoI;
-import com.example.tp_3.dao.DatabaseConnection;
-import com.example.tp_3.models.Amphi;
-import com.example.tp_3.models.Batiment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import com.example.tp_3.dao.AmphiDao;
+import com.example.tp_3.dao.DatabaseConnection;
+import com.example.tp_3.models.Amphi;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AmphiDao implements BatimentDaoI {
-    private static Connection connection = DatabaseConnection.getConnection();
+public class AmphiDaoI implements AmphiDao {
+    static Connection connection = DatabaseConnection.getConnection();
 
     @Override
-    public void ajouterBatiment(Batiment amphi) {
+    public void addAmphi(Amphi amphi) {
         String query = "INSERT INTO Amphi (Emplacement, Taille, Fonctionnalite, Description) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -29,63 +27,65 @@ public class AmphiDao implements BatimentDaoI {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+            // Handle the exception based on your error handling logic
         }
     }
 
     @Override
-    public Batiment getBatimentById(int id) {
-        Batiment amphi = null;
+    public Amphi getAmphiById(int idAmphi) {
+        Amphi amphi = null;
         String query = "SELECT * FROM Amphi WHERE ID_Amphi = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, idAmphi);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    amphi = new Amphi();
-                    amphi.setId(resultSet.getInt("ID_Amphi"));
-                    amphi.setEmplacement(resultSet.getString("Emplacement"));
-                    amphi.setTaille(resultSet.getInt("Taille"));
-                    amphi.setFonctionnalite(resultSet.getString("Fonctionnalite"));
-                    amphi.setDescription(resultSet.getString("Description"));
+                    amphi = new Amphi(
+                            resultSet.getInt("ID_Amphi"),
+                            resultSet.getString("Emplacement"),
+                            resultSet.getInt("Taille"),
+                            resultSet.getString("Fonctionnalite"),
+                            resultSet.getString("Description")
+                    );
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+            // Handle the exception based on your error handling logic
         }
 
         return amphi;
     }
 
     @Override
-    public List<Batiment> getAllBatiments() {
-        List<Batiment> amphis = new ArrayList<>();
+    public List<Amphi> getAllAmphis() {
+        List<Amphi> amphis = new ArrayList<>();
         String query = "SELECT * FROM Amphi";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
-                Amphi amphi = new Amphi();
-                amphi.setId(resultSet.getInt("ID_Amphi"));
-                amphi.setEmplacement(resultSet.getString("Emplacement"));
-                amphi.setTaille(resultSet.getInt("Taille"));
-                amphi.setFonctionnalite(resultSet.getString("Fonctionnalite"));
-                amphi.setDescription(resultSet.getString("Description"));
+                Amphi amphi = new Amphi(
+                        resultSet.getInt("ID_Amphi"),
+                        resultSet.getString("Emplacement"),
+                        resultSet.getInt("Taille"),
+                        resultSet.getString("Fonctionnalite"),
+                        resultSet.getString("Description")
+                );
                 amphis.add(amphi);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+            // Handle the exception based on your error handling logic
         }
 
         return amphis;
     }
 
     @Override
-    public void updateBatiment(Batiment amphi) {
+    public void updateAmphi(Amphi amphi) {
         String query = "UPDATE Amphi SET Emplacement = ?, Taille = ?, Fonctionnalite = ?, Description = ? WHERE ID_Amphi = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -98,21 +98,20 @@ public class AmphiDao implements BatimentDaoI {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+            // Handle the exception based on your error handling logic
         }
     }
 
     @Override
-    public void deleteBatiment(int id) {
+    public void deleteAmphi(int idAmphi) {
         String query = "DELETE FROM Amphi WHERE ID_Amphi = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, idAmphi);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon votre logique d'erreur
+            // Handle the exception based on your error handling logic
         }
     }
 }
-*/
